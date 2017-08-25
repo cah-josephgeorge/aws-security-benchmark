@@ -2185,24 +2185,24 @@
     #==================================================
     # EC2 Termination Detection
     #==================================================
-    Ec2TerminationCloudWatchEventRule:
-      Type: AWS::Events::Rule
-      Properties:
-        Name: DetectEc2TerminationEvents
-        Description: Publishes formatted EC2 termination events to an SNS topic
-        EventPattern:
-          detail-type:
-            - AWS API Call via CloudTrail
-          detail:
-            eventSource:
-              - ec2.amazonaws.com
-            eventName:
-              - TerminateInstances
-        State: ENABLED
-        Targets:
-          -
-            Arn: !GetAtt FunctionToFormatCloudWatchEvent.Arn
-            Id: TargetFunctionV1
+    # Ec2TerminationCloudWatchEventRule:
+    #   Type: AWS::Events::Rule
+    #   Properties:
+    #     Name: DetectEc2TerminationEvents
+    #     Description: Publishes formatted EC2 termination events to an SNS topic
+    #     EventPattern:
+    #       detail-type:
+    #         - AWS API Call via CloudTrail
+    #       detail:
+    #         eventSource:
+    #           - ec2.amazonaws.com
+    #         eventName:
+    #           - TerminateInstances
+    #     State: ENABLED
+    #     Targets:
+    #       -
+    #         Arn: !GetAtt FunctionToFormatCloudWatchEvent.Arn
+    #         Id: TargetFunctionV1
 
     #==================================================
     # CIS 3.10	Ensure a log metric filter and alarm exist for security group changes
